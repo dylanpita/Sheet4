@@ -20,10 +20,10 @@
     </tr>
     <tr>
         <td class="text-center">
-            @Html.ListBoxFor(x => x.SubTypes, new SelectList(Enum.GetValues(typeof(Sheet4.Models.SubTypes))), new { style="color: black;"})
+            @Html.ListBoxFor(x => x.SubTypes, new SelectList(Enum.GetValues(typeof(Sheet4.Models.SubTypes))), new { style="color: black;", required = "required" })
         </td>
         <td class="text-center">
-            @Html.ListBoxFor(x => x.SubSizes,  new SelectList(Enum.GetValues(typeof(Sheet4.Models.SubSizes))), new { style = "color: black;" })
+            @Html.ListBoxFor(x => x.SubSizes, new SelectList(Enum.GetValues(typeof(Sheet4.Models.SubSizes))), new { style = "color: black;", required = "required" })
         </td>
     </tr>
     <tr>
@@ -33,7 +33,7 @@
     </tr>
     <tr>
         <td colspan="2" style="text-align: center;">
-            @Html.RadioButtonFor(x => x.mealDeal, Sheet4.Models.MealDeal.None)@("None")&nbsp;&nbsp;
+            @Html.RadioButtonFor(x => x.mealDeal, Sheet4.Models.MealDeal.None, new { Checked="checked" })@("None")&nbsp;&nbsp;
             @Html.RadioButtonFor(x => x.mealDeal, Sheet4.Models.MealDeal.DrinkAndChips)@("Drink and Chips")&nbsp;&nbsp;
             @Html.RadioButtonFor(x => x.mealDeal, Sheet4.Models.MealDeal.DrinkAndCookie)@("Drink and Cookies")
         </td>
