@@ -1,0 +1,48 @@
+﻿@model Sheet4.Models.Order
+@{
+    ViewBag.Title = "Index";
+}
+
+<table style="width: 50%; margin-left: auto; margin-right: auto; background-color: dimgray; border: 3px solid black;">
+@using (Html.BeginForm("Receipt", "Home", FormMethod.Post))
+{   <tr>
+        <th colspan="2" class="text-center text-capitalize">
+            Welcome to Star Subs!
+        </th>
+    </tr>
+    <tr>
+        <th class="text-capitalize text-center">
+            Select a Sub Type:
+        </th>
+        <th class="text-capitalize text-center">
+            Select a Size:
+        </th>
+    </tr>
+    <tr>
+        <td class="text-center">
+            @Html.ListBoxFor(x => x.SubTypes, new SelectList(Enum.GetValues(typeof(Sheet4.Models.SubTypes))), new { style="color: black;"})
+        </td>
+        <td class="text-center">
+            @Html.ListBoxFor(x => x.SubSizes,  new SelectList(Enum.GetValues(typeof(Sheet4.Models.SubSizes))), new { style = "color: black;" })
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" class="text-center" style="padding-top: 25px;">
+            Select a Meal Deal
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center;">
+            @Html.RadioButtonFor(x => x.mealDeal, Sheet4.Models.MealDeal.None)@("None")&nbsp;&nbsp;
+            @Html.RadioButtonFor(x => x.mealDeal, Sheet4.Models.MealDeal.DrinkAndChips)@("Drink and Chips")&nbsp;&nbsp;
+            @Html.RadioButtonFor(x => x.mealDeal, Sheet4.Models.MealDeal.DrinkAndCookie)@("Drink and Cookies")
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center; padding-top: 25px;">
+            <input type="submit" value="Place Order" class="btn-primary" />
+        </td>
+    </tr>
+    
+}
+</table>   
